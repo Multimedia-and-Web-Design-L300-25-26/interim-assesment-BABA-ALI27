@@ -59,6 +59,49 @@ Create a new cryptocurrency using:
 
 Send data to the backend API and ensure it is properly stored in the database (MongoDB). Also handle success and error responses appropriately, returning clear and meaningful feedback based on the outcome of each request.
 
+## Backend Implementation
+
+This repository now includes a Node.js backend API built with Express and MongoDB.
+
+- `server.js`: application entry point
+- `config/db.js`: MongoDB connection logic
+- `models/User.js`: user schema with name, email, and password
+- `models/Crypto.js`: crypto schema with name, symbol, price, image, and 24h change
+- `controllers/authController.js`: user registration, login, profile, and logout logic
+- `controllers/cryptoController.js`: crypto list, gainers, new listings, and add crypto logic
+- `routes/authRoutes.js`: `/api/auth` endpoints
+- `routes/cryptoRoutes.js`: `/api/crypto` endpoints
+- `middleware/authMiddleware.js`: JWT protect middleware
+
+### Run the backend locally
+
+1. Copy `.env.example` to `.env`.
+2. Set `MONGO_URI`, `JWT_SECRET`, and `CLIENT_URL`.
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the server:
+
+```bash
+npm run dev
+```
+
+5. API base URL: `http://localhost:5000/api`
+
+### Example API routes
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET /api/auth/profile`
+- `GET /api/crypto`
+- `GET /api/crypto/gainers`
+- `GET /api/crypto/new`
+- `POST /api/crypto`
+
 ---
 
 Push your backend code to GitHub Classroom, deploy the backend (recommended: Render), and integrate it into your Coinbase clone frontend repository. After completing the integration, deploy the updated frontend as well. Finally, submit the links to your deployed backend, deployed frontend, and your updated Coinbase clone repository via the Google Form attached.
